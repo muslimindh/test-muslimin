@@ -23,6 +23,6 @@ Route::prefix('transactions')->name('transactions.')->group(function () {
     Route::put('/edit/{transaction}', [TransactionController::class, 'update']);
 });
 
-Route::get('/p', function () {
+Route::get('/', function () {
     return view('welcome');
 });
