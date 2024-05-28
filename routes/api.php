@@ -26,12 +26,3 @@ Route::prefix('transactions')->name('transactions.')->group(function () {
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/db-test', function () {
-    try {
-        DB::connection()->getPdo();
-        return 'Connected to the database: ' . DB::connection()->getDatabaseName();
-    } catch (\Exception $e) {
-        return 'Could not connect to the database. Please check your configuration.';
-    }
-});
