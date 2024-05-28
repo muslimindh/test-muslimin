@@ -12,7 +12,11 @@ class TransactionController extends Controller
     public function store(Request $request){
         DB::beginTransaction();
         try{
-            $transaction = Transaction::create($request->all());
+            $transaction = Transaction::create($request->all(), [
+                'amount' => 'required',
+                'type' => 'required',
+                'category' => 'required'
+            ]);
             DB::commit();
             return response()->json([
                 'success' => true,
